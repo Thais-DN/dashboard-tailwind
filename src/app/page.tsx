@@ -1,6 +1,7 @@
 import { SettingsTabs } from "./components/SettingsTabs";
 import * as Input from "./components/Input"
-import { Mail, Upload, UploadCloud, User } from "lucide-react";
+import { Mail } from "lucide-react";
+import * as FileInput from "./components/Form/FileInput/Input"
 
 export default function Home() {
     return (
@@ -63,21 +64,12 @@ export default function Home() {
                                 This will be displayed on your profile
                             </span>
                         </label>
-                        <div className="flex items-start gap-5">
-                            <div className="bg-violet-50 flex h-16 w-16 items-center justify-center rounded-full">
-                                <User className="w-8 h-8 text-violet-500" />
-                            </div>
-
-                            <label htmlFor="photo" className="flex flex-1 cursor-pointer flex-col items-center gap-3 rounded-lg border border-zinc-300 px-6 py-4 text-center text-zinc-500 shadow-sm">
-                                <div className="rounded-full border-6 border-zinc-50 bg-zinc-100 p-2">
-                                    <UploadCloud className="h-5 w-5 text-zinc-600" />
-                                </div>
-                                <div className="flex flex-col items-center gap-1">
-                                    <span>Click to upload or drag and drop</span>
-                                </div>
-                            </label>
-                            <input type="file" className="sr-only" id="photo" />
-
+                        <div>
+                            <FileInput.Root className="flex items-start gap-5">
+                                <FileInput.ImagePreview />
+                                <FileInput.Trigger />
+                                <FileInput.Control />
+                            </FileInput.Root>
                         </div>
                     </div>
 
@@ -121,7 +113,10 @@ export default function Home() {
                                 Share a few snippets of your work.
                             </span>
                         </label>
-                        <div></div>
+                        <FileInput.Root>
+                            <FileInput.Trigger />
+                            <FileInput.Control multiple />
+                        </FileInput.Root>
                     </div>
 
                     <div className="flex items-center justify-end gap-2 pt-5">
