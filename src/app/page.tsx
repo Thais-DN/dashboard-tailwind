@@ -1,6 +1,6 @@
 import { SettingsTabs } from "./components/SettingsTabs";
 import * as Input from "./components/Input"
-import { Mail } from "lucide-react";
+import { Mail, Upload, UploadCloud, User } from "lucide-react";
 
 export default function Home() {
     return (
@@ -45,13 +45,97 @@ export default function Home() {
                     </div>
 
                     <div className="grid gap-3 grid-cols-form pt-5">
-                        <label htmlFor="email" className="text-sm font-medium text-zinc-700">Email address</label>
+                        <label htmlFor="email" className="text-sm font-medium text-zinc-700">
+                            Email address
+                        </label>
                         <Input.InputRoot>
                             <Input.InputPrefix>
                                 <Mail className="h-5 w-5 text-zinc-500"/>
                             </Input.InputPrefix>
                             <Input.InputControl id="email" type="email" defaultValue="Thais.dnunes@hotmail.com" />
                         </Input.InputRoot>
+                    </div>
+
+                    <div className="grid gap-3 grid-cols-form pt-5">
+                        <label htmlFor="photo" className="text-sm font-medium text-zinc-700">
+                            Your photo
+                            <span className="mt-0.5 text-sm font-normal text-zinc-500 block">
+                                This will be displayed on your profile
+                            </span>
+                        </label>
+                        <div className="flex items-start gap-5">
+                            <div className="bg-violet-50 flex h-16 w-16 items-center justify-center rounded-full">
+                                <User className="w-8 h-8 text-violet-500" />
+                            </div>
+
+                            <label htmlFor="photo" className="flex flex-1 cursor-pointer flex-col items-center gap-3 rounded-lg border border-zinc-300 px-6 py-4 text-center text-zinc-500 shadow-sm">
+                                <div className="rounded-full border-6 border-zinc-50 bg-zinc-100 p-2">
+                                    <UploadCloud className="h-5 w-5 text-zinc-600" />
+                                </div>
+                                <div className="flex flex-col items-center gap-1">
+                                    <span>Click to upload or drag and drop</span>
+                                </div>
+                            </label>
+                            <input type="file" className="sr-only" id="photo" />
+
+                        </div>
+                    </div>
+
+                    <div className="grid gap-3 grid-cols-form pt-5">
+                        <label htmlFor="role" className="text-sm font-medium text-zinc-700">
+                            Role
+                        </label>
+                        <Input.InputRoot>
+                            <Input.InputControl id="role" defaultValue="CTO" />
+                        </Input.InputRoot>
+                    </div>
+                    
+                    <div className="grid gap-3 grid-cols-form pt-5">
+                        <label htmlFor="contry" className="text-sm font-medium text-zinc-700">
+                            Contry
+                        </label>
+                        <div></div>
+                    </div>
+
+                    <div className="grid gap-3 grid-cols-form pt-5">
+                        <label htmlFor="timezone" className="text-sm font-medium text-zinc-700">
+                            Time zone
+                        </label>
+                        <div></div>
+                    </div>
+
+                    <div className="grid gap-3 grid-cols-form pt-5">
+                        <label htmlFor="bio" className="text-sm font-medium text-zinc-700">
+                            Bio
+                            <span className="mt-0.5 text-sm font-normal text-zinc-500 block">
+                                Writea short introduction.
+                            </span>
+                        </label>
+                        <div></div>
+                    </div>
+
+                    <div className="grid gap-3 grid-cols-form pt-5">
+                        <label htmlFor="projects" className="text-sm font-medium text-zinc-700">
+                            Portfolio projects
+                            <span className="mt-0.5 text-sm font-normal text-zinc-500 block">
+                                Share a few snippets of your work.
+                            </span>
+                        </label>
+                        <div></div>
+                    </div>
+
+                    <div className="flex items-center justify-end gap-2 pt-5">
+                    <button 
+                            type="button" 
+                            className="rounded-lg px-4 py-2 text-sm font-semibold shadow-sm border border-zinc-300 text-zinc-700 hover:bg-zinc-50">
+                                Cancel
+                        </button>
+                        <button 
+                            type="submit" 
+                            form="settings" 
+                            className="rounded-lg px-4 py-2 text-sm font-semibold shadow-sm bg-violet-600 text-white hover:bg-violet-700">
+                            Save
+                        </button>
                     </div>
                 </form>
             </div>
