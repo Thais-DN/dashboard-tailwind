@@ -1,3 +1,4 @@
+import { transform } from "next/dist/build/swc";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -22,6 +23,22 @@ const config: Config = {
             
             maxWidth: {
                 6: "6px"
+            },
+
+            keyframes: {
+                slideDonwAndFade: {
+                    from: { opacity: "0", transform: "translateY(-2px)" },
+                    to: { opacity: "1", transform: "translateY(0)" },
+                },
+                // slideUpeAndFade: {
+                //     from: { opacity: "1" },
+                //     to: { opacity: "0"},
+                // },
+            },
+    
+            animation: {
+                slideDonwAndFade: "slideDonwAndFade 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+                // slideUpeAndFade: "slideUpeAndFade 1s linear" ,
             },
         },
     },
