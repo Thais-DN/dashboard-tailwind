@@ -47,7 +47,7 @@ export function Sidebar() {
             
                 <UsedSpaceWidget />
 
-                <div className="h-px bg-zinc-200" />
+                <div className="h-px bg-zinc-200 dark:bg-zinc-700" />
 
                 <Profile />
            </div>
