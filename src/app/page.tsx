@@ -1,13 +1,21 @@
+"use client"
 import { SettingsTabs } from "./components/SettingsTabs";
 import * as Input from "./components/Input"
 import * as FileInput from "./components/Form/FileInput/Index"
-import { Bold, Italic, Link, List, ListOrdered, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Select } from "./components/Form/Select";
 import { SelectItem } from "./components/Form/Select/SelectItem";
 import { Textarea } from "./components/Form/Select/Textarea";
 import { Button } from "./components/Button";
+import { useState } from "react";
+import TextFormattingToolbar from "./components/Form/FileInput/TextFormattingToolbar";
 
 export default function Home() {
+    const [text, setText] = useState('');
+    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setText(event.target.value);
+    };
+
     return (
         <>
             <h1 className="text-3xl font-medium text-zinc-900 dark:text-zinc-100">Settings</h1>
@@ -122,33 +130,19 @@ export default function Home() {
                         </label>
                         <div className="space-y-3">
                             <div className="grid gap-3 grid-cols-2">
-                            <Select placeholder="" defaultValue="normal">
-                                <SelectItem value="normal" defaultChecked text="Normal text" />
-                                <SelectItem value="md" text="Markdown" />
-                            </Select>
-
-                                <div className="flex items-center gap-1">
-                                    <Button variant="ghost" type="button">
-                                        <Bold className="h-4 w-4 text-zinc-500" strokeWidth={3}/>
-                                    </Button>
-                                    <Button variant="ghost" type="button">
-                                        <Italic className="h-4 w-4 text-zinc-500" strokeWidth={3}/>
-                                    </Button>
-                                    <Button variant="ghost" type="button">
-                                        <Link className="h-4 w-4 text-zinc-500" strokeWidth={3}/>
-                                    </Button>
-                                    <Button variant="ghost" type="button">
-                                        <List className="h-4 w-4 text-zinc-500" strokeWidth={3}/>
-                                    </Button>
-                                    <Button variant="ghost" type="button">
-                                        <ListOrdered className="h-4 w-4 text-zinc-500" strokeWidth={3}/>
-                                    </Button>
-                                </div>
+                                <Select placeholder="" defaultValue="normal">
+                                    <SelectItem value="normal" defaultChecked text="Normal text" />
+                                    <SelectItem value="md" text="Markdown" />
+                                </Select>
+                                <TextFormattingToolbar text={text} setText={setText} />
                             </div>
                             
                             <Textarea 
-                                id="bio" 
-                                defaultValue="I'm a Product Designer based in Melbourne, Australia. I specialise in UX/UI design, brand strategy, and Webflow development."
+                                 id="bio"
+                                 value={text} 
+                                 onChange={handleChange}
+                                 placeholder="
+                                 converting, but in markdown..."
                             />
                         </div>
                     </div>

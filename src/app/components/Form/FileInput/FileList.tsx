@@ -1,25 +1,30 @@
-"use client"
+'use client'
 
-import { useFileInput } from "./Root"
-import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { FileItem } from "./FileItem"
+import { FileItem } from './FileItem'
+import { useFileInput } from './Root'
 
-export function FileList() {
-    const { files } = useFileInput()
-    const [ parent ] = useAutoAnimate()
+export interface FileListProps {}
 
-    return(
-        <div ref={parent} className="mt-4 space-y-3">
-            {files.map((file) => {
-                return (
-                    <FileItem 
-                    key={file.name} 
-                    name={file.name} 
-                    size={file.size}
-                    state="progress"
-                />
-                )
-            })}
-        </div>
-    )
+export function FileList(props: FileListProps) {
+  const { files } = useFileInput()
+
+  if (files.length === 0) {
+    return null
+  }
+
+  return (
+    <div className="mt-4 flex flex-col gap-3">
+      {files.map((file) => {
+        return (
+          <FileItem
+            key={file.name}
+            name={file.name}
+            size={file.size}
+            type={file.type}
+            state="complete"
+          />
+        )
+      })}
+    </div>
+  )
 }
