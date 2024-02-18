@@ -15,7 +15,4 @@ Este é um projeto de interface de usuário. A interface permite o carregamento 
 - **Tema Escuro**: Os usuários podem alternar entre temas claro e escuro conforme sua preferência.
 - **Design Responsivo**: A interface se adapta para proporcionar uma experiência de usuário consistente em dispositivos móveis e desktops.
 
-
-## Confira no link
-
-[Interface](https://dashboard-tailwind-puce.vercel.app/)
+## [Confira no link](https://dashboard-tailwind-puce.vercel.app/)
