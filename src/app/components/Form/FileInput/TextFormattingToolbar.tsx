@@ -1,5 +1,4 @@
 import React from 'react';
-import { Editor, EditorState, RichUtils } from 'draft-js';
 import { Bold, Italic, Link, List, ListOrdered, Mail } from "lucide-react";
 import { Button } from '../../Button';
 

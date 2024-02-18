@@ -7,6 +7,7 @@ const ThemeToggle: React.FC = () => {
   useEffect(() => {
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
     setDarkMode(isDarkMode);
+    document.documentElement.classList.toggle('dark', isDarkMode);
   }, []);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleDarkMode}
-      className={`p-2 rounded-md text-zinc-800 hover:bg-zinc-200 bg-zinc-500/10 dark:hover:bg-zinc-500/20 dark:text-violet-300 ${darkMode ? 'bg-zinc-800' : 'bg-zinc-200'}`}
+      className={`p-2 rounded-md text-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 dark:text-violet-300 ${darkMode ? 'dark:bg-zinc-800' : 'bg-zinc-200'}`}
     >
       {darkMode ? <Moon /> : <Sun />}
     </button>
