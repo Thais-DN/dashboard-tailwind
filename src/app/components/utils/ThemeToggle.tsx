@@ -20,7 +20,7 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleDarkMode}
-      className={`p-2 rounded-md text-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 dark:text-violet-300 ${darkMode ? 'dark:bg-zinc-800' : 'bg-zinc-200'}`}
+      className={`p-2 rounded-md text-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-600 dark:text-violet-300 ${darkMode ? 'dark:bg-zinc-700' : 'bg-zinc-200'}`}
     >
       {darkMode ? <Moon /> : <Sun />}
     </button>
